@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breast Cancer Diagnosis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      .hidden {
+        display: none;
+      }
+
+      /* Add styles for the How It Works section */
+      .how-it-works-page .container {
+        padding: 20px;
+      }
+      .how-it-works-page h1 {
+        color: #3c1d31;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .how-it-works-page .subtitle {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      .how-it-works-page .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .how-it-works-page .grid-item {
+        text-align: center;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .how-it-works-page .grid-item img {
+        max-width: 100%;
+        border-radius: 10px;
+      }
+      .how-it-works-page h3 {
+        color: #3c1d31;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Home Page -->
+    <div id="home-page">
+      <header>
+        <div class="logo"><span>&#x1F49C;</span> Breast Cancer Diagnosis</div>
+        <nav>
+          <a href="#" onclick="showPage('home-page')">Home</a>
+          <a href="#" onclick="showPage('about-page')">About</a>
+          <a href="#" onclick="showPage('how-it-works-page')">How it Works</a>
+          <a href="#" onclick="showPage('contact-page')">Contact</a>
+          <a href="#" onclick="showPage('faq-page')">Help/FAQ</a>
+        </nav>
+      </header>
+      <main>
+        <div class="hero">
+          <h1>
+            <strong>ML-Based Classification for Breast Cancer Detection</strong>
+          </h1>
+          <p>
+            <strong>Welcome to a platform where innovation meets compassion. 
+            Harnessing cutting-edge machine learning, we strive to transform the journey of 
+            breast cancer detection into one of hope, empowerment, and possibilities. 
+            Together, we can make early diagnosis a reality and inspire a brighter, healthier future for all.</strong>
+        </p>
+        <p>
+            <em>"Hope is the foundation of healing, and knowledge is the bridge to recovery."</em>
+        </p>        
+          <div class="buttons">
+            <div style="text-align: center; margin-top: 20px;">
+              <a href="#" class="btn awareness" onclick="showPage('awareness-page')">Awareness</a>
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+              <a href="#" class="btn diagnose" onclick="showPage('lets-diagnose-page')">Let's Diagnose &#x27A4;</a>
+            </div>            
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 20px; padding: 20px;">
+          <!-- Box 1 -->
+          <div style="width: 32%; padding: 10px; border: 2px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+            <a href="https://ibb.co/bMDftMDM">
+              <img 
+                src="https://i.ibb.co/Rkd58kdk/5840816.jpg" 
+                alt="5840816" 
+                style="width: 100%; height: 85vh; border-radius: 10px; object-fit: cover;">
+            </a>
+          </div>
+        
+          <!-- Box 2 -->
+          <div style="width: 32%; padding: 10px; border: 2px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+            <a href="https://ibb.co/hJrNBQwz">
+              <img 
+                src="https://i.ibb.co/1tBNryjW/52252.jpg" 
+                alt="52252" 
+                style="width: 100%; height: 85vh; border-radius: 10px; object-fit: cover;">
+            </a>
+          </div>
+        
+          <!-- Box 3 -->
+          <div style="width: 32%; padding: 10px; border: 2px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+            <a href="https://ibb.co/DDhL2YPy">
+              <img 
+                src="https://i.ibb.co/4ZzJr2wG/5833876.jpg" 
+                alt="5833876" 
+                style="width: 100%; border-radius: 10px; object-fit: cover;">
+            </a>
+          </div>
+        </div>            
+      </main>
+    </div>
+
+    <!-- About Page -->
+    <div id="about-page" class="hidden">
+      <header>
+        <div class="logo"><span>&#x1F49C;</span> Breast Cancer Diagnosis</div>
+        <nav>
+          <a href="#" onclick="showPage('home-page')">Home</a>
+          <a href="#" onclick="showPage('about-page')">About</a>
+          <a href="#" onclick="showPage('how-it-works-page')">How it Works</a>
+          <a href="#" onclick="showPage('contact-page')">Contact</a>
+          <a href="#" onclick="showPage('faq-page')">Help/FAQ</a>
+        </nav>
+      </header>
+      <main>
+        <section class="about-section">
+          <div class="image-container">
+            <img
+              src="https://i.ibb.co/wybzNW7/doctor-using-tablet-close-up.jpg"
+              alt="Doctor using tablet"
+            />
+          </div>
+          <div class="content-container">
+            <h2>About</h2>
+            <p>
+              <strong>ML-Based Classification for Breast Cancer Detection</strong> is an innovative approach that uses 
+              machine learning algorithms to analyze clinical data and accurately classify breast tumors 
+              as either benign or malignant. This project leverages the power of data-driven intelligence 
+              to support early diagnosis, aid clinical decision-making, and improve patient outcomes.
+            </p>
+            <h3>Why Machine Learning for Breast Cancer Detection?</h3>
+            <ul>
+              <li>
+                <strong>Improved Accuracy: </strong>
+                  ML models reduce human error and increase diagnostic reliability by learning from historical clinical data.
+              </li>
+              <li>
+                <strong>Early Detection: </strong>
+                  Classifiers can identify patterns that indicate cancer in its early stages—when treatment is most effective.
+              </li>
+              <li>
+                <strong>Efficiency & Scalability: </strong>
+                  Once trained, ML systems can analyze patient data quickly, making them useful in high-demand clinical settings.
+              </li>
+              <li>
+                <strong>Personalized Diagnosis: </strong>
+                Incorporating patient-specific features allows for more tailored predictions and treatment pathways.
+              </li>
+            </ul>
+            <h3>The Goal:</h3>
+            <p>
+              This project aims to harness machine learning for faster, more accurate breast cancer 
+              detection—making healthcare smarter, more proactive, and accessible to everyone.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="hidden">
+      <header>
+        <div class="logo"><span>&#x1F49C;</span> Breast Cancer Diagnosis</div>
+        <nav>
+          <a href="#" onclick="showPage('home-page')">Home</a>
+          <a href="#" onclick="showPage('about-page')">About</a>
+          <a href="#" onclick="showPage('how-it-works-page')">How it Works</a>
+          <a href="#" onclick="showPage('contact-page')">Contact</a>
+          <a href="#" onclick="showPage('faq-page')">Help/FAQ</a>
+        </nav>
+      </header>
+      <main>
+        <div class="contact-section">
+          <div class="contact-content">
+            <h1>Get in Touch</h1>
+            <p>
+              We’re here to help! If you have any questions, feedback, or need
+              assistance, feel free to reach out to us.
+            </p>
+            <div class="contact-info">
+              <h3>Contact Information:</h3>
+              <p><strong>Email:</strong> support@breastdiagnosis.com</p>
+              <p><strong>Phone:</strong> +1-800-555-1234</p>
+              <p>
+                <strong>Address:</strong> 123 Health Avenue, Medical City, 56789
+              </p>
+            </div>
+            <a
+              href="#"
+              class="contact-button"
+              onclick="showPage('contact-form-page')"
+              >Contact Form</a
+            >
+          </div>
+          <div class="contact-image">
+            <img
+              src="https://i.ibb.co/6ZThS29/portrait-joyful-goodlooking-blond-woman-white-dress-talking-phone-hold-smartphone-near-ear-look-upbe.jpg"
+              alt="Contact Image"
+            />
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Contact Form Page -->
+    <div id="contact-form-page" class="hidden">
+      <header>
+        <div class="logo"><span>&#x1F49C;</span> Breast Cancer Diagnosis</div>
+        <nav>
+          <a href="#" onclick="showPage('home-page')">Home</a>
+          <a href="#" onclick="showPage('about-page')">About</a>
+          <a href="#" onclick="showPage('how-it-works-page')">How it Works</a>
+          <a href="#" onclick="showPage('contact-page')">Contact</a>
+          <a href="#" onclick="showPage('faq-page')">Help/FAQ</a>
+        </nav>
+      </header>
+      <main>
+        <div class="contact-form-section">
+          <div class="form-container">
+            <div class="form-text">
+              <h1>Contact Form:</h1>
+              <p>Fill out the form below to connect with us directly:</p>
+              <p>
+                <strong>Note:</strong> Our support team will respond within
+                24-48 business hours.
+              </p>
+            </div>
+            <div class="form-fields">
+              <form action="#">
+                <label for="name">Your Name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                />
+
+                <label for="email">Email Address:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+
+                <label for="phone">Phone Number:</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                />
+
+                <label for="subject">Subject:</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Enter subject"
+                />
+
+                <label for="message">Message:</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Write your message"
+                ></textarea>
+
+                <button type="submit" id="submitButton">SUBMIT</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Add functionality to change the button text on form submission
+      const formSection = document.querySelector('.contact-form-section');
+      const submitButton = document.getElementById('submitButton');
+      const phoneInput = document.getElementById('phone');
+      const subjectInput = document.getElementById('subject');
+      const messageTextarea = document.getElementById('message');
+      const emailInput = document.getElementById('email');
+      const nameInput = document.getElementById('name');
+    
+      formSection.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        // Show loading effect
+        submitButton.textContent = 'SENDING...';
+        submitButton.style.backgroundColor = 'orange';
+        submitButton.disabled = true;
+    
+        // Simulate submission process and reset form after a delay
+        setTimeout(() => {
+          submitButton.textContent = 'SUBMITTED';
+          submitButton.style.backgroundColor = 'green';
+    
+          // Clear all input fields
+          phoneInput.value = '';
+          subjectInput.value = '';
+          messageTextarea.value = '';
+          emailInput.value = '';
+          nameInput.value = '';
+    
+          // Allow new submission after a few seconds
+          setTimeout(() => {
+            submitButton.textContent = 'SUBMIT';
+            submitButton.style.backgroundColor = '';
+            submitButton.disabled = false;
+          }, 2000); // Reset button to SUBMIT after 2 seconds
+        }, 3000); // Simulate 3 seconds for sending process
+      });
+    </script>     
+
+    <!-- FAQ Page -->
+    <div id="faq-page" class="hidden">
+      <header>
+        <div class="logo"><span>&#x1F49C;</span> Breast Cancer Diagnosis</div>
+        <nav>
+          <a href="#" onclick="showPage('home-page')">Home</a>
+          <a href="#" onclick="showPage('about-page')">About</a>
+          <a href="#" onclick="showPage('how-it-works-page')">How it Works</a>
+          <a href="#" onclick="showPage('contact-page')">Contact</a>
+          <a href="#" onclick="showPage('faq-page')">Help/FAQ</a>
+        </nav>
+      </header>
+      <main>
+        <section class="faqs">
+          <h1>FAQs</h1>
+          <div class="faq-container">
+            <div class="faq-card">
+              <h2>Is this tool meant to replace a doctor’s diagnosis?</h2>
+              <p>
+                No. This system is designed to assist healthcare professionals 
+                by offering data-driven insights. It supports—but does not replace—medical 
+                expertise and clinical judgment.
+              </p>
+            </div>
+            <div class="faq-card">
+              <h2>How accurate is the prediction made by this system?</h2>
+              <p>
+                The system is trained on real clinical datasets and tested for accuracy, 
+                precision, and recall. While it performs well under validation, accuracy 
+                can vary depending on data quality and completeness.
+              </p>
+            </div>
+            <div class="faq-card">
+              <h2>Is my data safe and private when using this system?</h2>
+              <p>
+                Yes. The system is designed with data privacy in mind. If deployed online, 
+                secure methods like encryption and anonymization would be applied to 
+                protect personal information.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- How It Works Page -->
+    <div id="how-it-works-page" class="hidden">
+      <header>
+        <div class="logo"><span>&#x1F49C;</span> Breast Cancer Diagnosis</div>
+        <nav>
+          <a href="#" onclick="showPage('home-page')">Home</a>
+          <a href="#" onclick="showPage('about-page')">About</a>
+          <a href="#" onclick="showPage('how-it-works-page')">How it Works</a>
+          <a href="#" onclick="showPage('contact-page')">Contact</a>
+          <a href="#" onclick="showPage('faq-page')">Help/FAQ</a>
+        </nav>
+      </header>
+      <main class="how-it-works-page">
+        <div class="container">
+          <h1>How It Works?</h1>
+          <p class="subtitle">
+            Our system streamlines breast cancer detection using machine learning and clinical data. Here's how the process unfolds:
+          </p>
+          <div class="grid">
+            <div class="grid-item">
+              <img
+                src="https://i.ibb.co/412kq96/closeup-hands-using-computer-laptop-with-screen-showing-analysis-data.jpg"
+                alt="Data Collection"
+              />
+              <h3>Data Collection</h3>
+              <p>
+                We collect vital patient information such as age, tumor size, lymph node status, 
+                hormone receptor status, and other clinical features needed for diagnosis.
+              </p>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://i.ibb.co/CJwwLD2/900-x-615-1.png"
+                alt="Data Preprocessing"
+              />
+              <h3>Data Preprocessing</h3>
+              <p>
+                Collected data is cleaned, normalized, and encoded into machine-readable format. 
+                This step ensures the model receives consistent and meaningful input.
+              </p>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://i.ibb.co/Pzrj0WbC/11563094.jpg"
+                alt="Multi-Modal Machine Learning"
+              />
+              <h3>Machine Learning Classification</h3>
+              <p>
+                A trained ML classifier (e.g., Random Forest, SVM, Neural Network) 
+                analyzes the processed data to predict whether the tumor is benign or malignant.
+              </p>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://i.ibb.co/BVFWJkgC/view-3d-practicing-lawyer.jpg"
+                alt="Diagnosis & Recommendations"
+              />
+              <h3>Diagnostic Report Generation</h3>
+              <p>
+                The system generates a personalized diagnostic report with prediction results, 
+                interpretation, recommendations, mental health tips, and educational notes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Awareness Page -->
+    <div id="awareness-page" class="hidden">
+      <header>
+        <div class="logo"><span>&#x1F49C;</span> Breast Cancer Awareness</div>
+        <nav>
+          <a href="#" onclick="showPage('home-page')">Home</a>
+          <a href="#" onclick="showPage('about-page')">About</a>
+          <a href="#" onclick="showPage('how-it-works-page')">How it Works</a>
+          <a href="#" onclick="showPage('contact-page')">Contact</a>
+          <a href="#" onclick="showPage('faq-page')">Help/FAQ</a>
+        </nav>
+      </header>
+      <main>
+        <section class="second-page">
+          <div class="second-page-content">
+            <div class="image-container">
+              <img
+                src="https://i.ibb.co/LgM9v4n/Premium-Photo-Woman-recovering-after-breast-cancer.jpg"
+                alt="Woman recovering after breast cancer"
+              />
+            </div>
+            <div class="content">
+              <h2>What is Breast Cancer?</h2>
+              <p>
+                Breast cancer is a disease where cells in the breast grow
+                uncontrollably. It can occur in both men and women, though it is
+                far more common in women.
+              </p>
+              <h3>Types of Breast Cancer:</h3>
+              <ul>
+                <li>
+                  <strong>Invasive Breast Cancer:</strong> Cancer cells spread
+                  from the breast ducts or lobules to surrounding tissue.
+                </li>
+                <li>
+                  <strong>Non-Invasive (In Situ):</strong> Cancer cells are
+                  confined to ducts or lobules and have not spread.
+                </li>
+              </ul>
+              <h3>Self-Examination & Early Detection:</h3>
+              <p>
+                Regular breast self-exams can help you identify changes in your
+                breasts that may indicate the presence of breast cancer. Perform
+                these self-exams monthly and monitor for lumps, changes in size,
+                or unusual pain.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="third-page">
+          <div class="image-container">
+            <img
+              src="https://i.ibb.co/dWTHSJ4/tender-touched-woman-closes-eyes-keeps-hand-near-heart-happy-receive-gift-recalls-lovely-date-has-dy.jpg"
+              alt="Woman practicing self-care"
+            />
+          </div>
+          <div class="content">
+            <h3>How to Perform a Self-Exam:</h3>
+            <ul>
+              <li>
+                Look for any visible changes in shape, size, or skin texture of
+                your breasts in front of a mirror.
+              </li>
+              <li>
+                Feel your breasts using your fingers, covering the entire breast
+                area, including the underarms. Look for any unusual lumps or
+                bumps.
+              </li>
+              <li>
+                Check for changes in the nipple, such as redness, irritation, or
+                discharge.
+              </li>
+              <li>
+                If you notice any changes or abnormalities, contact your doctor
+                immediately for a professional evaluation.
+              </li>
+            </ul>
+            <h3>Regular Screenings:</h3>
+            <p>
+              Mammograms are a critical tool in detecting breast cancer, even
+              before symptoms appear. Women aged 40 and older should schedule
+              regular mammograms. Women with a family history or higher risk may
+              need to start screenings earlier. Consult your healthcare provider
+              for the best plan.
+            </p>
+          </div>
+        </section>
+
+        <section class="statistics-page">
+          <div class="left-section">
+            <img
+              src="https://i.ibb.co/nn5Wmz6/2022-Breast-Cancer-Stats-v03-1-in-8-SQ.png"
+              alt="Breast Cancer Stats"
+            />
+          </div>
+          <div class="right-section">
+            <h3>Breast Cancer: Statistics and Impact:</h3>
+            <ul>
+              <li>
+                2.3 million women were diagnosed with breast cancer globally in
+                2020.
+              </li>
+              <li>
+                It’s the leading cause of cancer death in women worldwide.
+              </li>
+              <li>
+                1 in 8 women will be diagnosed with breast cancer in their
+                lifetime.
+              </li>
+              <li>Early detection increases survival rates by up to 98%.</li>
+            </ul>
+            <h3>How You Can Participate in Breast Cancer Awareness</h3>
+            <ul>
+              <li>
+                <strong>Join Fundraisers:</strong> Support research by attending
+                events or donating.
+              </li>
+              <li>
+                <strong>Spread the Word:</strong> Share awareness on social
+                media about prevention and early detection.
+              </li>
+              <li>
+                <strong>Wear Pink:</strong> Show your support by wearing pink.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+<!-- Let's Diagnose Page -->
+<div id="lets-diagnose-page" class="hidden">
+  <header>
+    <div class="logo"><span>&#x1F49C;</span> Breast Cancer Awareness</div>
+    <nav>
+      <a href="#" onclick="showPage('home-page')">Home</a>
+      <a href="#" onclick="showPage('about-page')">About</a>
+      <a href="#" onclick="showPage('how-it-works-page')">How it Works</a>
+      <a href="#" onclick="showPage('contact-page')">Contact</a>
+      <a href="#" onclick="showPage('faq-page')">Help/FAQ</a>
+    </nav>
+  </header>
+  <main>
+    <section class="diagnosis-page">
+        <div class="diagnosis-header">
+            <h1>Let's Diagnose</h1>
+            <p class="note">Fill in your details and clinical data for a comprehensive assessment.</p>
+        </div>
+        <div class="form-container">
+            <form id="diagnosisForm">
+                <!-- Patient Information -->
+                <div class="form-section">
+                    <h3>Patient Information</h3>
+                    <div class="form-group">
+                        <label for="patient_name">Full Name:</label>
+                        <input type="text" id="patient_name" name="patient_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" min="18" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Biological Sex:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Health Background -->
+                <div class="form-section">
+                    <h3>Health Background</h3>
+                    <div class="form-group">
+                        <label for="family_history">Family History of Breast Cancer:</label>
+                        <select id="family_history" name="family_history" required>
+                            <option value="">Select</option>
+                            <option value="no">No</option>
+                            <option value="mother">Mother</option>
+                            <option value="sister">Sister</option>
+                            <option value="grandmother">Grandmother</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="previous_cancer">Previous Cancer Diagnosis:</label>
+                        <select id="previous_cancer" name="previous_cancer" required>
+                            <option value="no">No</option>
+                            <option value="breast">Breast Cancer</option>
+                            <option value="other">Other Cancer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="symptoms">Noticed Symptoms:</label>
+                        <select id="symptoms" name="symptoms" required>
+                            <option value="">Select</option>
+                            <option value="lump">Lump in Breast</option>
+                            <option value="pain">Breast Pain</option>
+                            <option value="discharge">Nipple Discharge</option>
+                            <option value="none">No Symptoms (Screening)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Clinical Data -->
+                <div class="form-section">
+                    <h3>Clinical Measurements</h3>
+                    <div class="form-group">
+                        <label for="concave_points_mean">Concave Points Mean:</label>
+                        <input type="number" step="0.0001" id="concave_points_mean" name="concave_points_mean" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="concave_points_worst">Concave Points Worst:</label>
+                        <input type="number" step="0.0001" id="concave_points_worst" name="concave_points_worst" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="radius_worst">Radius Worst:</label>
+                        <input type="number" step="0.01" id="radius_worst" name="radius_worst" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="perimeter_worst">Perimeter Worst:</label>
+                        <input type="number" step="0.01" id="perimeter_worst" name="perimeter_worst" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="area_worst">Area Worst:</label>
+                        <input type="number" step="1" id="area_worst" name="area_worst" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="concavity_mean">Concavity Mean:</label>
+                        <input type="number" step="0.0001" id="concavity_mean" name="concavity_mean" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="perimeter_mean">Perimeter Mean:</label>
+                        <input type="number" step="0.01" id="perimeter_mean" name="perimeter_mean" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="area_mean">Area Mean:</label>
+                        <input type="number" step="1" id="area_mean" name="area_mean" required>
+                    </div>
+                </div>
+
+                <button type="button" id="predict-btn">Predict</button>
+              </form>
+
+<!-- The result will appear here -->
+<div id="prediction-result" style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+            <!-- Hidden element to pass patient data -->
+            <div id="patient-data" 
+                 data-patient="{{ patient_data | tojson | safe if patient_data else '{}' }}"
+                 style="display: none;">
+            </div>
+            
+            <div id="chatbot-button-container" style="display: none;">
+                <a id="chatbot-button" href="/chatbot" class="btn btn-primary mt-3">
+                    <i class="fas fa-robot"></i> Chat with AI Assistant
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Add this Modal HTML -->
+  <div id="resultModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Prediction Result</h2>
+      <p id="modal-diagnosis" style="font-weight: bold;"></p>
+      <p id="modal-message"></p>
+      <p id="modal-confidence" style="font-style: italic;"></p>
+    </div>
+  </div>
+  
+  <style>
+    .modal {
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+      animation: fadeIn 0.4s ease-in-out;
+    }
+  
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 25px 30px;
+      border-radius: 16px;
+      width: 40%;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+      transform: scale(0.9);
+      animation: scaleIn 0.3s ease-out forwards;
+      font-family: 'Segoe UI', sans-serif;
+    }
+  
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  
+    .close:hover {
+      color: #000;
+    }
+  
+    #modal-diagnosis {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  
+    #modal-message {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+  
+    #modal-confidence {
+      font-size: 16px;
+      color: #333;
+      font-style: normal; /* Removes italic */
+    }
+  
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  
+    @keyframes scaleIn {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>  
+    <script>
+    function showPage(pageId) {
+      // Hide all page sections (more specific selector)
+      const pageSections = document.querySelectorAll('div[id$="-page"]');
+      pageSections.forEach(section => {
+        section.classList.add('hidden');
+      });
+        
+      // Show the target section
+      const targetSection = document.getElementById(pageId);
+      if (targetSection) {
+        targetSection.classList.remove('hidden');
+      }
+    }
+    </script> 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const predictButton = document.getElementById('predict-btn');
+        const form = document.getElementById('diagnosisForm');
+        const chatbotButton = document.getElementById('chatbot-button-container');
+    
+        // Modal elements
+        const modal = document.getElementById('resultModal');
+        const modalDiagnosis = document.getElementById('modal-diagnosis');
+        const modalMessage = document.getElementById('modal-message');
+        const modalConfidence = document.getElementById('modal-confidence');
+        const closeModal = document.querySelector('.close');
+    
+        predictButton.addEventListener('click', async function (event) {
+          event.preventDefault();
+    
+          // Hide chatbot button
+          chatbotButton.style.display = 'none';
+    
+          try {
+            // Show loading state
+            predictButton.disabled = true;
+            predictButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+    
+            // Collect form data
+            const formData = new FormData(form);
+            const requestData = {};
+            for (let [key, value] of formData.entries()) {
+              requestData[key] = value;
+            }
+    
+            // Send prediction request
+            const response = await fetch('/predict', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(requestData)
+            });
+    
+            if (!response.ok) throw new Error('Prediction failed');
+    
+            const result = await response.json();
+    
+            console.log("Full Response:", result);
+    
+            // ⏳ Add fake loading delay (4 seconds)
+            setTimeout(() => {
+              // Show results in modal after delay
+              modalDiagnosis.textContent = `Diagnosis: ${result.diagnosis}`;
+              modalDiagnosis.style.color = result.diagnosis.includes('Malignant') ? 'red' : 'green';
+              modalMessage.textContent = result.message;
+              modalConfidence.textContent = `Confidence: ${result.confidence}`;
+              modal.style.display = 'block';
+    
+              // Show chatbot button
+              chatbotButton.style.display = 'block';
+    
+              // Reset button after showing result
+              predictButton.innerHTML = 'Predict';
+              predictButton.disabled = false;
+            }, 4000); // 4-second fake delay
+    
+          } catch (error) {
+            alert(`Error: ${error.message}`);
+            console.error("Prediction Error:", error);
+    
+            // Make sure button resets even on error
+            predictButton.innerHTML = 'Predict';
+            predictButton.disabled = false;
+          }
+        });
+    
+        // Modal close behavior
+        closeModal.onclick = () => modal.style.display = 'none';
+        window.onclick = (event) => {
+          if (event.target == modal) {
+            modal.style.display = 'none';
+          }
+        };
+      });
+    </script>    
+  </body>
+</html>

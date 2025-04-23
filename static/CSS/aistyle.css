@@ -1,0 +1,915 @@
+/* aistyle.css - Breast Cancer AI Assistant Styles (Pink Theme) */
+:root {
+    --primary-color: #d980a7;  /* Subtle pink */
+    --primary-light: #fcd1e8;  /* Very light pink */
+    --primary-dark: #d980a7;   /* Medium dark pink */
+    --secondary-color: #f6a5b6; /* Coral pastel pink */
+    --success-color: #98debd;  /* Light green */
+    --info-color: #9cd1ef;     /* Light blue pastel */
+    --warning-color: #fbc490;  /* Light orange pastel */
+    --danger-color: #f5a5a3;   /* Soft red pastel */
+    --light-color: #fffafc;    /* White with pink tint */
+    --dark-color: #b76b7a;     /* Deep pastel pink */
+    --text-color: #4a4a4a;     /* Dark gray */
+    --text-light: #8a8a8a;     /* Light gray */
+    --bg-gradient: linear-gradient(135deg, #fffafc 0%, #fde4f2 100%);
+    --card-shadow: 0 4px 12px rgba(248, 165, 194, 0.15);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+html, body {
+    height: auto !important; 
+    min-height: 100vh; /* Ensure it takes the full viewport height */
+    overflow-y: hidden; /* Allow vertical scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    line-height: 1.6;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Container Layout */
+.container-fluid {
+    padding: 0;
+    height: 100%;
+}
+
+.row {
+    height: 100%;
+    margin: 0;
+}
+
+/* Patient Panel Styles */
+.patient-panel {
+    background-color: white;
+    border-right: 1px solid rgba(232, 63, 142, 0.1);
+    height: 100%;
+    overflow-y: auto;
+    transition: var(--transition);
+}
+
+.patient-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+}
+
+.patient-info {
+    background-color: rgba(232, 63, 142, 0.05);
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 20px;
+}
+
+.patient-info p {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.patient-info strong {
+    min-width: 120px;
+    color: var(--primary-dark);
+}
+
+/* Chat Interface Styles */
+.chat-interface {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+}
+
+.chat-container {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 0 !important;
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px rgba(232, 63, 142, 0.2);
+}
+
+.card-header h4 {
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Chat History Styles */
+.chat-history {
+    background-color: var(--light-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    height: calc(100% - 120px);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Message Styles */
+.message {
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    border-radius: 18px;
+    max-width: 80%;
+    position: relative;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease-out;
+    box-shadow: 0 1px 2px rgba(232, 63, 142, 0.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+    background-color: var(--primary-color);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.bot-message {
+    background-color: white;
+    border: 1px solid #ffd6e7;
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+}
+
+.message-content {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.message-time {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-top: 5px;
+    text-align: right;
+    opacity: 0.8;
+}
+
+/* Input Area Styles */
+.input-group {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #ffd6e7;
+}
+
+.form-control {
+    border: none;
+    padding: 12px 15px;
+    resize: none;
+    background-color: white;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 2px var(--primary-light);
+    background-color: white;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0 20px;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Quick Action Buttons */
+.btn-group {
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.quick-btn {
+    border-radius: 20px !important;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    transition: var(--transition);
+    border: 1px solid var(--primary-light) !important;
+    color: var(--primary-dark);
+    background-color: white;
+}
+
+.quick-btn:hover {
+    background-color: var(--primary-light) !important;
+    color: white;
+}
+
+/* Voice Input Button Styles */
+#voiceInputBtn {
+    background-color: #d980a7; /* Pink background */
+    color: #ffffff; /* White text/icons */
+    border: 1px solid #d980a7; /* Border matches background */
+    transition: all 0.3s ease;
+    position: relative; /* For the listening indicator */
+    overflow: hidden; /* Keeps the pulse effect contained */
+}
+
+#voiceInputBtn:hover {
+    background-color: #e91e63; /* Slightly darker pink on hover */
+    transform: scale(1.05);
+}
+
+#voiceInputBtn .fa-microphone {
+    transition: transform 0.3s ease;
+}
+
+#voiceInputBtn.listening {
+    background-color: #ec407a;
+    animation: pulse 1.5s infinite;
+}
+
+#voiceInputBtn.listening .fa-microphone {
+    transform: scale(1.2);
+}
+
+/* Listening state styles */
+#voiceInputBtn.listening::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: inherit;
+    animation: ripple 1.5s linear infinite;
+    opacity: 0;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(236, 64, 122, 0.4); }
+    70% { box-shadow: 0 0 0 12px rgba(236, 64, 122, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(236, 64, 122, 0); }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Input placeholder transition */
+#messageInput::placeholder {
+    transition: all 0.3s ease;
+    color: #999;
+}
+
+#messageInput.listening::placeholder {
+    color: #ec407a;
+    font-weight: bold;
+}
+
+/* Visual feedback when recording */
+.listening-feedback {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: rgba(236, 64, 122, 0.9);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.listening-feedback::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #ff5252;
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease-in forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
+}
+
+/* Health Chart Styles */
+.health-metrics {
+    border: none;
+    box-shadow: var(--card-shadow);
+    background-color: var(--light-color);
+}
+
+.health-metrics .card-header {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+.healthChart {
+    width: 100%;
+    min-height: 300px;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    border: none;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    padding: 5px 0;
+    border: 1px solid #ffd6e7;
+}
+
+.dropdown-item {
+    padding: 8px 15px;
+    transition: var(--transition);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(232, 63, 142, 0.1);
+    color: var(--primary-dark);
+}
+
+/* Modal Styles */
+/* Change modal close button to pink */
+.modal-header .btn-close {
+    filter: invert(70%) sepia(20%) saturate(800%) hue-rotate(300deg) brightness(90%) contrast(90%);
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.modal-metrics-content {
+    padding: 20px;
+    line-height: 1.7;
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 0.85rem;
+}
+
+.alert-danger {
+    background-color: rgba(244, 67, 54, 0.1);
+    border-left: 4px solid var(--danger-color);
+    color: var(--danger-color);
+}
+
+.alert-success {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid var(--success-color);
+    color: var(--success-color);
+}
+
+/* Change detailed health analysis colors to pink theme */
+.alert-urgent {
+    background-color: #fff3f5;
+    border-color: var(--primary-light);
+    color: var(--primary-dark);
+    border-left: 4px solid var(--primary-color);
+}
+
+.alert-urgent .alert-heading {
+    color: var(--primary-dark);
+}
+
+.alert-urgent i {
+    color: var(--primary-color);
+}
+
+/* Loading Animation */
+.loading-dots::after {
+    content: '.';
+    animation: dots 1.5s steps(5, end) infinite;
+    color: var(--primary-color);
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60% { content: '...'; }
+    80%, 100% { content: ''; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .patient-panel, .chat-interface {
+        height: auto;
+        max-height: 50vh;
+    }
+    
+    .row {
+        flex-direction: column;
+    }
+    
+    .chat-history {
+        height: calc(100% - 150px);
+    }
+    
+    .patient-info strong {
+        min-width: 100px;
+    }
+    
+    .health-metrics {
+        margin-bottom: 20px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Ribbon Awareness Element */
+.ribbon-corner {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.ribbon-corner::before {
+    content: "Breast Cancer Awareness";
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 15px 0;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+    right: -25px;
+    top: 30px;
+    transform: rotate(45deg);
+    font-weight: bold;
+}
+
+/* Metrics grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.metric-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert-box {
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.high-risk {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.safe {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #d980a7;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Metrics Modal Styles */
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .metric-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.metric-card {
+    border: 1px solid #ddd;
+    border-left-width: 5px;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.metric-icon {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+}
+
+.metric-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.progress-container {
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.metric-details {
+    font-size: 0.9rem;
+}
+
+.metric-detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.metric-note {
+    font-size: 0.85rem;
+    color: #6c757d;
+    line-height: 1.4;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+}
+
+.alert-urgent {
+    background-color: #fff3f5;
+    border-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Detailed Health Analysis Header Styling */
+.modal-header.health-analysis {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-bottom: 1px solid var(--primary-light) !important;
+}
+
+.modal-header.health-analysis h5 {
+    color: white !important;
+}
+
+/* If it's a card header instead */
+.card-header.health-analysis {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-bottom: 1px solid var(--primary-light) !important;
+}
+
+.card-header.health-analysis h4 {
+    color: white !important;
+}
+
+/* If it's a standalone section */
+.detailed-health-analysis {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.detailed-health-analysis h3 {
+    color: var(--primary-dark);
+    margin-top: 0;
+}
+
+/* Force pink styles for Detailed Health Analysis section */
+.modal-header {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-bottom: none !important;
+}
+
+.modal-header .modal-title {
+    color: white !important;
+}
+
+/* If there's a specific health analysis section */
+#detailedHealthAnalysis, 
+.detailed-health-analysis,
+.health-analysis-section {
+    background-color: var(--primary-light) !important;
+    color: var(--primary-dark) !important;
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+/* Typing animation styles */
+.typing-cursor {
+    display: inline-block;
+    width: 1.5px;
+    height: 1em;
+    background-color: #444;
+    animation: blink 0.8s step-start infinite;
+    margin-left: 1px;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Sidebar styles */
+.sticky-sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent entire page from scrolling */
+}
+
+/* Chat history area styling */
+#chatHistory {
+    flex: 1; /* Takes up remaining space */
+    overflow-y: auto; /* Only this area scrolls */
+    padding: 15px;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Input area styling */
+.chat-input-area {
+    padding: 15px;
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    position: sticky;
+    bottom: 0;
+}
+
+/* Fixed height content areas */
+.card-header, .input-group, .quick-actions {
+    flex-shrink: 0;
+}
+
+/* Make sure the patient card and health metrics don't force overflow */
+.patient-card, .health-metrics {
+    margin-bottom: 20px;
+}
+
+/* Add auto-scrolling for new messages in JS */
+.message-new {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Optional: Custom scrollbar styling */
+#chatHistory::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chatHistory::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#chatHistory::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+#chatHistory::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Ensure the body takes full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container-fluid {
+    height: 100%;
+    padding: 0;
+}
+
+.row {
+    height: 100%;
+    margin: 0;
+}
+
+/* Chat Interface Container */
+.chat-interface-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat Box */
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Chat History */
+.chat-history {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #fff3f5;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    max-height: 60vh; /* Adjust as needed */
+    scroll-behavior: smooth;
+}
+
+/* Chat Input Area */
+.chat-input-area {
+    padding: 10px;
+    background: white;
+    border-top: 1px solid #dee2e6;
+    position: sticky;
+    bottom: 0;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.quick-actions .quick-btn {
+    padding: 5px 10px;
+    border: 1px solid #dee2e6;
+    background: white;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quick-actions .quick-btn:hover {
+    background: #f1f1f1;
+}
+
+/* Message Styling */
+.message {
+    margin-bottom: 12px;
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    position: relative;
+}
+
+.user-message {
+    background: #d980a7;
+    color: #ffffff;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.bot-message {
+    background: #ffffff;
+    color: #212529;
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+}
+
+.message-time {
+    font-size: 0.7rem;
+    color: #7c7c7c;
+    text-align: right;
+    margin-top: 4px;
+}
+
+/* Typing Animation */
+.typing-cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.report-button-container {
+    text-align: left; /* Changed from right to left */
+    margin-top: 10px;
+}
+
+.generate-report-btn {
+    background-color: #d980a7; /* Soft pink */
+    color: white;
+    border: none;
+    padding: 10px 24px; /* Increased horizontal padding (left/right) */
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto; /* Ensures button expands with content */
+    min-width: 180px; /* Sets a minimum width */
+    display: inline-block; /* Helps with proper width expansion */
+}
+
+.generate-report-btn:hover {
+    background-color: #f5578b; /* Slightly darker pink */
+}
